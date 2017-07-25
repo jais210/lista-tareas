@@ -1,15 +1,15 @@
-/*  */
+/* Include the padding and border in an element's total width and height */
 * {
     box-sizing: border-box;
 }
 
-/*  */
+/* Remove margins and padding from the list */
 ul {
     margin: 0;
     padding: 0;
 }
 
-/*  */
+/* Style the list items */
 ul li {
     cursor: pointer;
     position: relative;
@@ -65,13 +65,13 @@ ul li.checked::before {
 }
 
 .close:hover {
-    background-color: #f44336;
+    background-color: #c25975;
     color: white;
 }
 
 /* Style the header */
 .header {
-    background-color: #f44336;
+    background-color: #c25975;
     padding: 30px 40px;
     color: white;
     text-align: center;
