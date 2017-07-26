@@ -120,12 +120,12 @@ function nuevaTarea() {
   }
 }
 // para tachar con un click
-var list = document.querySelector("ul");
-list.addEventListener(
+var tachar = document.querySelector("ul");
+tachar.addEventListener(
   "click",
-  function(ev) {
-    if (ev.target.tagName === "LI") {
-      ev.target.classList.toggle("checked");
+  function(cross) {
+    if (cross.target.tagName === "LI") {
+      cross.target.classList.toggle("checked");
     }
   },
   false
