@@ -1,52 +1,80 @@
 // Estoy añadiendo elementos a mi lista desde HTML
-// var miLista = document.getElementsByTagName("li");
-
-var arrLista = [
+var miLista = [
   {
-    title: "delectus aut autem"
+    userId: 1,
+    id: 1,
+    title: "delectus aut autem",
+    completed: false
   },
   {
-    title: "quis ut nam facilis et officia qui"
+    userId: 1,
+    id: 2,
+    title: "quis ut nam facilis et officia qui",
+    completed: false
   },
   {
-    title: "fugiat veniam minus"
+    userId: 1,
+    id: 3,
+    title: "fugiat veniam minus",
+    completed: false
   },
   {
-    title: "et porro tempora"
+    userId: 1,
+    id: 4,
+    title: "et porro tempora",
+    completed: true
   },
   {
-    title: "laboriosam mollitia et enim quasi adipisci quia provident illum"
+    userId: 1,
+    id: 5,
+    title: "laboriosam mollitia et enim quasi adipisci quia provident illum",
+    completed: false
   },
   {
-    title: "qui ullam ratione quibusdam voluptatem quia omnis"
+    userId: 1,
+    id: 6,
+    title: "qui ullam ratione quibusdam voluptatem quia omnis",
+    completed: false
   },
   {
-    title: "illo expedita consequatur quia in"
+    userId: 1,
+    id: 7,
+    title: "illo expedita consequatur quia in",
+    completed: false
   },
   {
-    title: "quo adipisci enim quam ut ab"
+    userId: 1,
+    id: 8,
+    title: "quo adipisci enim quam ut ab",
+    completed: true
   },
   {
-    title: "molestiae perspiciatis ipsa"
+    userId: 1,
+    id: 9,
+    title: "molestiae perspiciatis ipsa",
+    completed: false
   },
   {
-    title: "illo est ratione doloremque quia maiores aut"
+    userId: 1,
+    id: 10,
+    title: "illo est ratione doloremque quia maiores aut",
+    completed: true
   }
 ];
-for (var i = 0; i < miArrLista.length; i++) {
-  var tareas = document.getElementById("li");
-  var _tarea += arrLista[i].title // error
-   
-  tareas.innerHTML = _tarea;
+
+lista = document.getElementById("myUL");
+str = "<ul>";
+for (var i = 0; i < miLista.length; i++) {
+  var li = document.createElement("li");
+  var span = document.createElement("span");
+  span.className = "close";
+  span.textContent = miLista[i].title;
+  li.appendChild(span);
+  lista.appendChild(li);
+  str += "<li><span class='close'>" + miLista[i].title + "</span></li>";
 }
-// var i;
-// for (i = 0; i < miLista.length; i++) {
-//   var span = document.createElement("span");
-//   var texto = document.createTextNode("\u00D7");
-//   span.className = "close";
-//   span.appendChild(texto);
-//   miLista[i].appendChild(span);
-// }
+str += "</ul>";
+lista.innerHTML = str;
 
 // Click on a close button to hide the current list item
 var close = document.getElementsByClassName("close");
