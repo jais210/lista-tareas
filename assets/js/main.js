@@ -1,4 +1,4 @@
-// Mi lista desde js a html
+// Mi lista (arreglo) desde js a html
 var miLista = [
   {
     userId: 1,
@@ -70,7 +70,15 @@ for (var i = 0; i < miLista.length; i++) {
   span.className = "close";
   span.textContent = miLista[i].title;
   lista.appendChild(li);
-  str += "<li > " + miLista[i].title + "<span class='close'>" + "x" +" </span></li>";
+
+  if (miLista[i].completed == true) {
+    str +=
+      "<li > " +
+      miLista[i].title +
+      "<span class='close'>" +
+      "x" +
+      " </span></li>";
+  }
 }
 str += "</ul>";
 lista.innerHTML = str;
@@ -84,14 +92,13 @@ for (var i = 0; i < borrar.length; i++) {
   };
 }
 
-
 // Crear nueva lista y añadir con el botón
 function nuevaTarea() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  miLista.push(t);
+  var tarea = document.createTextNode(inputValue);
+  li.appendChild(tarea);
+  miLista.push(tarea);
   if (inputValue === "") {
     alert("Agrega alguna tarea!");
   } else {
@@ -112,7 +119,14 @@ function nuevaTarea() {
     };
   }
 }
-
-
-
-
+// para tachar con un click
+var list = document.querySelector("ul");
+list.addEventListener(
+  "click",
+  function(ev) {
+    if (ev.target.tagName === "LI") {
+      ev.target.classList.toggle("checked");
+    }
+  },
+  false
+);
