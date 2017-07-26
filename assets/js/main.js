@@ -1,4 +1,4 @@
-// Estoy añadiendo elementos a mi lista desde HTML
+// Mi lista desde js a html
 var miLista = [
   {
     userId: 1,
@@ -62,43 +62,30 @@ var miLista = [
   }
 ];
 
-lista = document.getElementById("myUL");
+lista = document.getElementById("miUl");
 str = "<ul>";
 for (var i = 0; i < miLista.length; i++) {
   var li = document.createElement("li");
   var span = document.createElement("span");
   span.className = "close";
   span.textContent = miLista[i].title;
-  li.appendChild(span);
   lista.appendChild(li);
-  str += "<li><span class='close'>" + miLista[i].title + "</span></li>";
+  str += "<li > " + miLista[i].title + "<span class='close'>" + "x" +" </span></li>";
 }
 str += "</ul>";
 lista.innerHTML = str;
 
-// Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
+// cerrar tarea realizada
+var cerrar = document.getElementsByClassName("close");
+for (var i = 0; i < cerrar.length; i++) {
+  cerrar[i].onclick = function() {
     var div = this.parentElement;
     div.style.display = "none";
   };
 }
 
-// Add a "checked" symbol when clicking on a list item
-var list = document.querySelector("ul");
-list.addEventListener(
-  "click",
-  function(ev) {
-    if (ev.target.tagName === "LI") {
-      ev.target.classList.toggle("checked");
-    }
-  },
-  false
-);
 
-// Create a new list item when clicking on the "Add" button
+// Crear nueva lista y añadir con el botón
 function nuevaTarea() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;
@@ -107,18 +94,18 @@ function nuevaTarea() {
   if (inputValue === "") {
     alert("Tienes que agregar alguna tarea!");
   } else {
-    document.getElementById("myUL").appendChild(li);
+    document.getElementById("miUl").appendChild(li);
   }
   document.getElementById("myInput").value = "";
 
-  var span = document.createElement("SPAN");
+  var span = document.createElement("span");
   var texto = document.createTextNode("\u00D7");
   span.className = "close";
   span.appendChild(texto);
   li.appendChild(span);
 
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
+  for (var i = 0; i < cerrar.length; i++) {
+    cerrar[i].onclick = function() {
       var div = this.parentElement;
       div.style.display = "none";
     };
