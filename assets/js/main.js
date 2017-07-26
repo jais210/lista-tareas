@@ -75,10 +75,10 @@ for (var i = 0; i < miLista.length; i++) {
 str += "</ul>";
 lista.innerHTML = str;
 
-// cerrar tarea realizada
-var cerrar = document.getElementsByClassName("close");
-for (var i = 0; i < cerrar.length; i++) {
-  cerrar[i].onclick = function() {
+// borrar tarea realizada
+var borrar = document.getElementsByClassName("close");
+for (var i = 0; i < borrar.length; i++) {
+  borrar[i].onclick = function() {
     var div = this.parentElement;
     div.style.display = "none";
   };
@@ -91,8 +91,9 @@ function nuevaTarea() {
   var inputValue = document.getElementById("myInput").value;
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
+  miLista.push(t);
   if (inputValue === "") {
-    alert("Tienes que agregar alguna tarea!");
+    alert("Agrega alguna tarea!");
   } else {
     document.getElementById("miUl").appendChild(li);
   }
@@ -104,10 +105,14 @@ function nuevaTarea() {
   span.appendChild(texto);
   li.appendChild(span);
 
-  for (var i = 0; i < cerrar.length; i++) {
-    cerrar[i].onclick = function() {
+  for (var i = 0; i < borrar.length; i++) {
+    borrar[i].onclick = function() {
       var div = this.parentElement;
       div.style.display = "none";
     };
   }
 }
+
+
+
+
